@@ -1,4 +1,3 @@
-
 name := "akka-persistence-redis-training"
 
 version := "1.0"
@@ -99,3 +98,22 @@ assemblyMergeStrategy in assembly := {
     val oldStrategy = (assemblyMergeStrategy in assembly).value
     oldStrategy(x)
 }
+
+import com.typesafe.config._
+
+//todo change database configuration file by environment
+val conf = ConfigFactory.parseFile(new File("src/main/resources/database.local.conf")).resolve()
+
+flywayDriver := conf.getString("db.default.driver")
+
+flywayUrl := conf.getString("db.default.url")
+
+flywayUser := conf.getString("db.default.username")
+
+flywayPassword := conf.getString("db.default.password")
+
+//flywayBaselineOnMigrate := true
+
+flywayTarget := "1.0.0"
+
+flywayBaselineVersion := "1.0.0"

@@ -13,3 +13,7 @@ addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.1.0")
 addSbtPlugin("com.typesafe.sbt" % "sbt-aspectj" % "0.9.4")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-digest" % "1.1.0")
+
+addSbtPlugin("org.flywaydb" % "flyway-sbt" % "4.2.0")
+
+resolvers += "Flyway" at "https://flywaydb.org/repo"
